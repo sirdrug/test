@@ -9,8 +9,6 @@ RUN gem install tzinfo-data
 ADD . /home/app/test
 WORKDIR /home/app/test
 RUN chown -R app:app /home/app/test
-RUN bundle install --deployment
-RUN gem install tzinfo-data
-RUN RAILS_ENV=production rake assets:precompile
+RUN bundle install
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
